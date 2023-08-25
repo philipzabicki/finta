@@ -289,7 +289,7 @@ class TA:
         kama = []
         # Current KAMA = Prior KAMA + smoothing_constant * (Price - Prior KAMA)
         for s, ma, price in zip(
-            sc.iteritems(), sma.shift().iteritems(), ohlc[column].iteritems()
+            sc.items(), sma.shift().items(), ohlc[column].items()
         ):
             try:
                 kama.append(kama[-1] + s[1] * (price[1] - kama[-1]))
@@ -396,7 +396,7 @@ class TA:
         evwma = [0]
 
         #  evwma = (evma[-1] * (vol_sum - volume)/vol_sum) + (volume * price / vol_sum)
-        for x, y in zip(x.fillna(0).iteritems(), y.iteritems()):
+        for x, y in zip(x.fillna(0).items(), y.items()):
             if x[1] == 0 or y[1] == 0:
                 evwma.append(0)
             else:
